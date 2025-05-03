@@ -1,161 +1,176 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Segoe UI", sans-serif;
-}
+/* FontAwesome CDN (make sure to include this in <head>) */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
 
-body {
-  background: #f9f9f9;
-  color: #333;
-}
+  :root {
+    --bg-image: url('images/img\ \(7\).jpeg'); /* Ensure these image paths exist */
+  }
 
-.navbar {
+  
+  body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 0;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(20px);
+    z-index: -1;
+    transition: background-image 1s ease-in-out;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+
+  nav a:hover {
+    color: cyan;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 100px 20px 40px;
+  }
+
+  .hero-title {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  .hero button:hover {
+  background: #00cccc;
+}
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: cyan;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  button:hover {
+    background-color: deepskyblue;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
+  }
+
+  .card {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 16px;
+    width: 280px;
+    padding: 1rem;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid transparent;
+    border-radius: 16px;
+    background: linear-gradient(hsl(0, 2%, 42%), #3b0802) padding-box,
+                linear-gradient(90deg, #00ffe7, #eb0feb) border-box;
+     transition: transform 0.3s ease;
+    flex: 1 1 200px; /* Flex-grow, shrink, base size */
+    transform-style: preserve-3d
+  }
+
+  .card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px #0ef;
+    filter: brightness(1.1);
+    transform: scale(1.05);
+    border-image: linear-gradient(45deg, #00f0ff, #ff00d4) 1;
+  }
+
+ 
+    @media (max-width: 768px) {
+  
+      .social-icons {
+      
+      }
+    
+      .icon {
+      
+      }
+    
+      /* hover effects */
+    }
+    
+
+    .cards {
+      flex-direction: column;
+      align-items: center;
+    }
+ /* Add social icon styles globally */
+.social-icons {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.navbar .logo {
-  font-weight: bold;
-  color: #e53935;
-  font-size: 1.5rem;
-}
-
-.navbar nav a {
-  margin: 0 1rem;
-  text-decoration: none;
-  color: #555;
-  font-weight: 500;
-}
-
-.navbar .login-cart {
-  display: flex;
+  justify-content: center;
   gap: 1rem;
+  margin-top: 2rem;
 }
 
-.hero {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, #f1f1f1, #fff);
-}
-
-.hero-content h1 {
-  font-size: 3rem;
-  font-weight: bold;
-}
-
-.hero-content h2 {
+.icon {
   font-size: 1.5rem;
-  color: #444;
-}
-
-.hero-content p {
-  margin: 1rem 0;
-  color: #777;
-}
-
-.btn {
-  padding: 0.8rem 1.5rem;
-  background: #e53935;
   color: white;
-  border: none;
-  border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  padding: 0.6rem;
+  transition: 0.3s ease;
   text-decoration: none;
-  transition: 0.3s;
 }
 
-.btn:hover {
-  background: #c62828;
+.icon:hover {
+  transform: scale(1.2);
 }
 
-.hero-image img {
-  max-width: 350px;
-  animation: float 3s ease-in-out infinite;
+.icon.facebook:hover {
+  box-shadow: 0 0 15px #1877f2, 0 0 25px #1877f2;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+.icon.instagram:hover {
+  box-shadow: 0 0 15px #30c9e1, 0 0 25px #30c9e1;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
+.icon.twitter:hover {
+  box-shadow: 0 0 15px #1da1f2, 0 0 25px #1da1f2;
 }
 
-.card {
-  background: var(--bg);
-  color: #fff;
-  padding: 1.5rem;
-  border-radius: 1.5rem;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
-  text-align: center;
-}
-
-.card img {
-  width: 100px;
-  margin-bottom: 1rem;
-}
-
-.card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.8rem;
-}
-
-.btn-light {
-  background: white;
-  color: var(--bg);
-  padding: 0.5rem 1.2rem;
-  border-radius: 1.5rem;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.btn-light:hover {
-  background: #eee;
-}
-
-.features {
-  display: flex;
-  justify-content: space-around;
-  padding: 2rem;
-  background: #fff;
-  flex-wrap: wrap;
-  gap: 1rem;
-  border-top: 1px solid #eee;
-}
-
-.features div {
-  text-align: center;
-}
-
-.features span {
-  font-size: 2rem;
-  color: #e53935;
-}
-
-.features p {
-  font-weight: bold;
-}
-
-.features small {
-  color: #888;
-}
+    
